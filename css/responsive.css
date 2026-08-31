@@ -1,0 +1,102 @@
+/* ==============================
+Password Gate
+================================ */
+.auth-locked{overflow:hidden}.auth-locked>:not(#passwordGate):not(script){display:none!important}.password-gate{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;min-height:100vh;min-height:100dvh;padding:max(20px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(20px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));overflow:auto;background:radial-gradient(circle at 50% 35%,#0a3045,#01050a 70%);transition:opacity .4s,filter .4s}.password-gate.unlocked{opacity:0;filter:brightness(2);pointer-events:none}.gate-noise{position:absolute;inset:0;pointer-events:none;opacity:.08;background:repeating-linear-gradient(0deg,transparent 0 3px,#5cecff33 4px),repeating-radial-gradient(circle at 25% 30%,#fff 0 1px,transparent 2px 9px)}.gate-panel{position:relative;width:min(460px,100%);padding:clamp(24px,5vw,42px);border:1px solid #5cecff88;border-top:4px solid var(--cyan);background:#03121df2;box-shadow:0 0 70px #18d8ff33;text-align:left}.gate-panel:before{content:"AUTHORIZATION REQUIRED";display:block;margin-bottom:22px;color:var(--red);font-size:11px;letter-spacing:.22em}.gate-mark{display:flex;align-items:center;gap:12px;color:var(--cyan);font-size:11px;letter-spacing:.16em}.gate-mark i{width:14px;height:14px;border-radius:50%;background:var(--cyan);box-shadow:0 0 16px var(--cyan)}.gate-kicker{margin:28px 0 4px;color:var(--muted);font-size:12px;letter-spacing:.15em}.gate-panel h1{margin:0 0 12px;font-size:clamp(30px,7vw,46px)}.gate-description{margin-bottom:24px;line-height:1.7;color:#c7dce3}.gate-panel label{display:block;margin-bottom:7px;color:var(--cyan);font-size:14px}.gate-panel input{width:100%;min-height:50px;padding:12px 14px;border:1px solid #5cecff88;border-radius:0;outline:0;background:#01080e;color:var(--white);font:inherit;font-size:18px}.gate-panel input:focus{border-color:var(--cyan);box-shadow:0 0 18px #5cecff44}.gate-panel button{width:100%;min-height:50px;margin-top:12px}.gate-error{min-height:24px;margin:12px 0 0;color:#ff8694}.gate-panel>small{display:block;margin-top:15px;color:#678792;text-align:center}.gate-panel.denied{animation:gateDenied .25s 2}@keyframes gateDenied{50%{transform:translateX(7px);border-color:var(--red)}}
+
+/* ==============================
+Dynamic Viewport / Shared Touch UI
+================================ */
+html,body{min-width:0;min-height:100%;min-height:100dvh}body{touch-action:manipulation;-webkit-text-size-adjust:100%}.screen,#game,.modal,.password-gate{height:100vh;height:100dvh}button,input{touch-action:manipulation}img,canvas,svg,video{max-width:100%}
+
+/* ==============================
+Tablet
+================================ */
+@media(max-width:1024px){
+ #hud{left:12px;right:12px}
+ #scene{left:12px;right:12px}
+ .modal-box{width:min(900px,94vw)}
+ .origin-timeline article{padding-inline:14px}
+}
+
+/* ==============================
+Mobile / Responsive
+================================ */
+@media(max-width:767px){
+ html,body{overflow:hidden}
+ button{min-height:44px}
+ #title{padding:24px 16px}
+ #title h1{font-size:clamp(54px,22vw,82px)}
+ #title h2{margin:14px 0;font-size:clamp(22px,8vw,34px);letter-spacing:.24em}
+ #title p{font-size:14px;line-height:1.6}
+ .title-actions{width:100%;max-width:360px;margin:22px auto}
+ .title-actions button{min-height:50px}
+ #skipBoot{right:12px;bottom:max(12px,env(safe-area-inset-bottom));min-height:44px;padding:9px 12px}
+ #boot{padding:20px 12px 68px}
+ #boot pre{width:100%;max-height:calc(100dvh - 88px);overflow:auto;font-size:clamp(11px,3.2vw,14px);line-height:1.4;white-space:pre-wrap;overflow-wrap:anywhere}
+ #hud{left:6px;right:6px;top:max(6px,env(safe-area-inset-top));height:60px;grid-template-columns:82px 1fr 66px}
+ .brand{padding-left:8px}.brand b{font-size:14px}.brand span{display:none}
+ #stageInfo small,#progress small{font-size:9px;letter-spacing:.08em}
+ #stageInfo strong{font-size:clamp(13px,4vw,17px)}
+ #progress{display:block;padding:0 6px;text-align:center}.progress-track{display:none}#progress b{font-size:13px}
+ #scene{inset:74px 6px 88px;min-height:0}
+ #roomLabel{left:12px;top:12px}#roomLabel small{font-size:9px}#roomLabel b{font-size:17px}
+ .scene-warning{top:68px;width:70%;font-size:9px;line-height:1.4;text-align:center}
+ .hotspot{left:35%;top:22%;width:170px;height:220px;transform:scale(.72);transform-origin:center}
+ .hotspot small{opacity:1;font-size:13px}.hotspot b{max-width:180px;font-size:15px;line-height:1.35}
+ .evidence-object{left:-8%;top:48%;transform:scale(.56)}
+ .object-art{width:130px;height:100px}
+ .door{right:-6%;top:22%;width:88px;height:55%;border-width:5px}.door i{display:none}.door b{font-size:10px}
+ #statusStrip{padding:6px 10px;font-size:9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+ #mission{left:8px;right:8px;bottom:max(7px,env(safe-area-inset-bottom));width:auto;padding:7px 11px;font-size:13px}
+ #mission small{font-size:10px}#mission p{line-height:1.35}
+ #nova{bottom:80px;width:calc(100vw - 16px);padding:11px 12px;gap:10px}
+ .nova-orb{width:38px;height:38px;flex-basis:38px}
+ #nova p{font-size:16px;line-height:1.45}
+ #toast{top:20%;width:92vw;font-size:clamp(20px,7vw,32px);overflow-wrap:anywhere}
+ .modal{place-content:end center;padding-top:env(safe-area-inset-top);overflow:hidden}
+ .modal-box{width:100vw;max-width:none;max-height:94vh;max-height:94dvh;margin:0;padding:18px 14px calc(18px + env(safe-area-inset-bottom));overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;border-right:0;border-bottom:0;border-left:0}
+ .modal-box h2{margin:6px 0 12px;font-size:clamp(20px,6vw,27px)}
+ .modal-kicker{font-size:10px;line-height:1.4}
+ .question{margin:10px 0;font-size:17px;line-height:1.55}
+ .choices{gap:9px;margin:14px 0}.choices button{width:100%;min-height:52px;padding:10px 11px;font-size:16px;line-height:1.45;white-space:normal;overflow-wrap:anywhere}.choices em{flex-basis:30px;height:30px;margin-right:10px}
+ .feedback{padding:13px;font-size:16px}.feedback b{font-size:19px}.feedback p{line-height:1.55}
+ .wide{min-height:50px;white-space:normal}
+ .evidence-card{margin:12px 0;padding:16px;font-size:16px;line-height:1.65}
+ .memory-fragment,.recovered-line,.nova-inline{font-size:16px;line-height:1.6}
+ .document-sheet{margin:12px 0;padding:14px;font-size:16px;line-height:2.4;overflow-wrap:anywhere}
+ .redact-token{min-height:44px;margin:3px 1px;padding:7px 9px;font-size:16px;white-space:normal}
+ .change-report{margin:12px 0 18px;padding:16px}.change-report p{font-size:16px}.change-report div{grid-template-columns:1fr auto}
+ .origin-question{align-items:flex-start;flex-direction:column}.origin-question p{font-size:16px}
+ .ending-dialogue{bottom:14%;width:94vw;padding:16px 10px}.ending-dialogue p{min-height:90px;font-size:clamp(19px,6vw,26px)}
+ .ending-screen #returnTitle{bottom:max(14px,env(safe-area-inset-bottom));min-height:48px}
+}
+
+/* ==============================
+Small Mobile
+================================ */
+@media(max-width:374px){
+ .gate-panel{padding:22px 16px}.gate-panel:before{margin-bottom:14px}
+ #hud{grid-template-columns:68px 1fr 54px}
+ .brand b{font-size:12px}#stageInfo strong{font-size:13px}
+ .hotspot{left:30%;transform:scale(.65)}
+ .evidence-object{left:-13%;transform:scale(.5)}
+ .door{right:-10%;width:76px}
+ .modal-box{padding-inline:11px}
+ .choices button{font-size:15px}
+}
+
+/* ==============================
+Short Landscape Screens
+================================ */
+@media(max-height:500px) and (orientation:landscape){
+ #hud{top:4px;height:48px}.brand b{font-size:13px}#stageInfo strong{font-size:14px}
+ #scene{inset:56px 8px 54px}
+ #roomLabel{top:7px}.scene-warning{top:10px}
+ .hotspot{top:3%;transform:scale(.58)}.evidence-object{left:7%;top:25%;transform:scale(.5)}
+ .door{top:8%;height:72%}
+ #mission{bottom:4px;padding-block:4px;max-width:56vw}
+ #nova{bottom:56px;padding:8px 12px}
+ .modal-box{max-height:96dvh}
+ .ending-nova{top:35%;transform:translate(-50%,-50%) scale(.7)}
+ .ending-dialogue{bottom:4%;padding:9px}.ending-dialogue p{min-height:48px;font-size:18px}
+}

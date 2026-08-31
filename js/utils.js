@@ -1,0 +1,1 @@
+window.AILab=window.AILab||{};AILab.Utils={clamp:(v,a,b)=>Math.max(a,Math.min(b,v)),lerp:(a,b,t)=>a+(b-a)*t,dist:(a,b)=>Math.hypot(a.x-b.x,a.y-b.y),angleDiff:(a,b)=>Math.atan2(Math.sin(a-b),Math.cos(a-b)),rand:(a,b)=>a+Math.random()*(b-a),formatTime:s=>`${String(Math.floor(s/60)).padStart(2,"0")}:${String(Math.floor(s%60)).padStart(2,"0")}`};

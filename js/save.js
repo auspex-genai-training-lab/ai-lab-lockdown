@@ -1,0 +1,1 @@
+window.AILab=window.AILab||{};AILab.Save={key:"ai_lab_lockdown_story_v4",save(data){localStorage.setItem(this.key,JSON.stringify(data))},load(){try{return JSON.parse(localStorage.getItem(this.key))}catch{return null}},exists(){return!!localStorage.getItem(this.key)},clear(){localStorage.removeItem(this.key)}};

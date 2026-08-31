@@ -1,0 +1,1 @@
+AILab.Collision={circleRect(p,r){const x=Math.max(r.x,Math.min(p.x,r.x+r.w)),y=Math.max(r.y,Math.min(p.y,r.y+r.h));return Math.hypot(p.x-x,p.y-y)<p.r},move(entity,dx,dy,rects){entity.x+=dx;if(rects.some(r=>this.circleRect(entity,r)))entity.x-=dx;entity.y+=dy;if(rects.some(r=>this.circleRect(entity,r)))entity.y-=dy}};
