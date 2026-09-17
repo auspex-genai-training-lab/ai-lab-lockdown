@@ -1,6 +1,6 @@
 // 授業用簡易パスワード
 // ※静的サイトのため、本格的なセキュリティ用途には使用できません。
-const GAME_PASSWORD="auspex_ai";
+const GAME_PASSWORD="ai_games_auspex";
 const AUTH_SESSION_KEY="ai_lab_class_authenticated";
 
 (()=>{
